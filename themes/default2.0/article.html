@@ -88,6 +88,62 @@
 				<link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.3.2/styles/tomorrow-night-bright.min.css">
 				<script src='https://cdn.staticfile.org/highlight.js/10.3.2/highlight.min.js'></script>
 				{{ &OPT.codeBeforHead }}
+				<style>
+        /* 1. 全局重置和确保页面内容高度 */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%; /* 确保高度计算正确 */
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        /* 仅为演示效果，添加大量内容撑开页面，以便可以滚动 */
+        .content {
+            height: 200vh; /* 设置为视窗高度的2倍，确保页面可以滚动 */
+            padding-top: 50px;
+            background-color: #f4f4f4;
+        }
+
+        /* 2. 超链接容器的 CSS 样式 - 实现置底居中 */
+        .footer-link-container {
+            /* 关键：将容器固定在浏览器视窗 */
+            position: fixed; 
+            
+            /* 关键：定位到底部 */
+            bottom: 0; 
+            
+            /* 关键：占据整个视窗宽度，以便子元素居中 */
+            left: 0;
+            right: 0; 
+            width: 100%; 
+            
+            /* 样式美化 */
+            height: 40px; /* 设置一个高度 */
+            background-color: #333; /* 容器背景色 */
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000; /* 确保它位于页面内容之上 */
+            
+            /* 关键：使用 Flexbox 实现内容居中 */
+            display: flex;
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+        }
+
+        /* 3. 超链接本身的样式 */
+        .bottom-link {
+            text-decoration: none; /* 移除下划线 */
+            color: white; /* 链接文字颜色 */
+            font-size: 16px;
+            padding: 10px 20px;
+            /* 可选：鼠标悬停效果 */
+            transition: color 0.3s;
+        }
+
+        .bottom-link:hover {
+            color: #ffcc00; /* 鼠标悬停时变色 */
+        }
+				</style>
 			</head>
 			<body class="home blog logged-in custom-font-enabled single-author hfeed">
 				<div id="page" class="site">
@@ -230,6 +286,9 @@
 				<script>hljs.initHighlightingOnLoad(); //代码高亮
 					</script>
 				{{ &OPT.codeBeforBody }}
+				<div class="footer-link-container">
+        <a href="https://icp.gov.moe/?keyword=20253250" target="_blank">萌ICP备20253250号</a>
+    </div>
 			</body>
-			<footer><a href="https://icp.gov.moe/?keyword=20253250" target="_blank">萌ICP备20253250号</a></footer>
+		
 			</html>
